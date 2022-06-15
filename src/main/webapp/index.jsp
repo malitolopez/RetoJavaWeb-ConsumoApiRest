@@ -13,13 +13,16 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         
         <title>JSP Page</title>
+       
     </head>
     <body>
         
         </br>
         </br>
-        <div class="container">
-            <h1>Registro</h1>
+        <div  class="container">
+            <h1>Perfil de Usuario</h1>
+            </br>
+            </br>
             <form class="form-group" action="UsuarioServlet" method="post">
                 <label for="lbl_Nombres"><b>NOMBRES</b></label>   
                 <input  type="text" class="form-control" name="nombres" id="txt_Nombres" placeholder="..." required>
