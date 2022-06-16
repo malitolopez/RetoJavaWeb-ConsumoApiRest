@@ -80,7 +80,7 @@ public class UserController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
-
+        //Se utiliza request.getParameter para recoger los parametros enviados por la peticion en la vista.
         String nombres = request.getParameter("nombres");
         String apellidos = request.getParameter("apellidos");
         String email = request.getParameter("email");
@@ -90,11 +90,14 @@ public class UserController extends HttpServlet {
         User enviar = new User(nombres, apellidos, email, telefono, ciudad, pais);
         /*Inyección de dependencias*/
         IUserService service = UserServiceImpl.getInstance();
+        //Obtener la respuesta del servicio
         User userSave = service.saveUser(enviar);
+        //Se coloca los resultados de la búsqueda como atributo del request
         request.setAttribute("user", userSave);
+        //Se realiza un forward a la página JSP donde se va a mostrar el perfil del usuario
         request.getRequestDispatcher("view/viewProfile.jsp").forward(request, response);
     }
-
+    
     /**
      * Returns a short description of the servlet.
      *
